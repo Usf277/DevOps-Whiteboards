@@ -45,7 +45,7 @@ This repository is perfect for:
 Got suggestions? Found a mistake? Want a new topic covered?  
 
 - **Open an issue** on this repo!  
-- **Comment on LinkedIn** ([Your LinkedIn Profile])  
+- **Comment on LinkedIn** (https://www.linkedin.com/in/youssef-safwat-518429231/)
 - **Star this repo ⭐ if you find it useful!**  
 
 Stay connected for updates! 🚀  
