@@ -1,9 +1,11 @@
 # Managing Linux Processes
 
 ## What is a process in Linux?
+
 A process is a running instance of a command. It's a file that has been executed, read from the disk, loaded into memory, and executed.
 
 ## What is actually being executed?
+
 - A C program
 - A shell script
 - A command in the terminal
@@ -11,7 +13,7 @@ A process is a running instance of a command. It's a file that has been executed
 
 ## The Origin of All Processes in Linux
 
-All processes in Linux start from a single process called **systemd** (or **sysVinit** in older distributions). This is the **parent process** that manages all other processes. 
+All processes in Linux start from a single process called **systemd** (or **sysVinit** in older distributions). This is the **parent process** that manages all other processes.
 
 - `systemd` takes **PID 1**
 - Every process has a **parent process**
@@ -20,22 +22,27 @@ All processes in Linux start from a single process called **systemd** (or **sysV
 ## Types of Processes
 
 ### System Process
+
 - Operates when the Linux OS boots up
 - Managed by the kernel
 
 ### User Process
+
 - Started by the user manually, remotely, or via scheduling
 
 ### Services (Daemons)
+
 - Background processes that run independently of user interaction
 - Provide specific functionality to the system or applications
 
 ---
 
 ## Managing Linux Processes
+
 Managing processes in Linux is a fundamental aspect of system administration. Process management involves **creating, monitoring, controlling, and terminating** processes.
 
 ### Process Lifecycle in Linux
+
 A process goes through multiple stages in its lifetime:
 
 1. **Create (Forking)**
@@ -63,18 +70,21 @@ A process goes through multiple stages in its lifetime:
 ## Commands/Topics Related to Managing Linux Processes
 
 ### Listing Processes Commands
+
 - `ps aux` → Lists all active processes
 - `top` → Dynamic real-time view of running processes
 - `htop` → Enhanced version of `top`
 - `pgrep <process-name>` → Searches for a process by name
 
 ### Killing Processes Commands
+
 - `kill <PID>` → Sends a termination signal to a process
 - `killall <process-name>` → Kills all processes with a specific name
 - `pkill <pattern>` → Kills processes matching a pattern
 - `xkill` → Kills a process by clicking on its window
 
 #### Types of Signals in Linux
+
 | Signal | Name  | Description |
 |--------|--------|----------------|
 | `1` | SIGHUP | Hangup |
@@ -84,6 +94,7 @@ A process goes through multiple stages in its lifetime:
 | `18` | SIGCONT | Resume a process |
 
 ### Hiding and Freezing Processes
+
 - `nohup <command> &` → Runs a command in the background
 - `jobs` → Lists background jobs
 - `fg <job-number>` → Brings a job to the foreground
@@ -95,23 +106,31 @@ A process goes through multiple stages in its lifetime:
 ## Background and Foreground Processes
 
 ### Running a program in the background
+
 - Append `&` at the end of the command:
+
   ```sh
   command &
   ```
+
 - View background jobs with `jobs`
 
 ### Bringing a background process to the foreground
+
 - Use `fg` to resume execution:
+
   ```sh
   fg %1
   ```
+
 - Suspend a process with `Ctrl+Z`
 
 ---
 
 ## Process States in Linux
+
 Every process in Linux exists in different states:
+
 1. **Running** (`R`): Actively using the CPU
 2. **Sleeping** (`S`): Waiting for an event
 3. **Zombie** (`Z`): Finished execution but not removed from the process table
@@ -120,19 +139,24 @@ Every process in Linux exists in different states:
 ---
 
 ## The Concept of cgroups
+
 Cgroups (Control Groups) limit and manage system resources for processes, users, or applications.
 
 ### Examples of Resource Control
+
 - **CPU Limits**: Restrict CPU usage per process
 - **Memory Limits**: Prevent processes from exceeding memory allocation
 - **Network Limits**: Control network bandwidth usage
 
 ### How cgroups Work
+
 Cgroups organize processes into hierarchical groups, allowing fine-grained resource control.
 
 ---
 
 ## Example Use Case in Action
+
 Cloud providers like AWS and Google Cloud use cgroups to manage multiple virtual machines efficiently. It ensures:
+
 - Fair resource allocation
 - Prevents a single process from monopolizing CPU, memory, or disk I/O
